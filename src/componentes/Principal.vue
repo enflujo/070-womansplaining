@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 
+// Para generar el token y usar la api: https://developer.spotify.com/documentation/general/guides/authorization/client-credentials/
+
 const datosPodcast = ref(null);
 const datosEpisodios = ref(null);
 const episodioActual = ref('');
