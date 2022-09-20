@@ -42,7 +42,7 @@ header {
   border: none;
   margin: 0;
   padding: 2em;
-  background-color: rgb(255, 80, 80);
+  background-color: #ff3d42;
 }
 
 #subtitulo {
