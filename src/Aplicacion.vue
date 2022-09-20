@@ -1,9 +1,15 @@
 <script setup>
-import Hola from './componentes/Hola.vue';
+import PaginaPrincipal from './componentes/Principal.vue';
 </script>
 
 <template>
-  <Hola />
+  <PaginaPrincipal />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+</style>
