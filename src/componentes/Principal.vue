@@ -5,7 +5,7 @@ import podcast from '../recursos/episodios.json';
 <template>
   <div id="contenedorGeneral">
     <header>
-      <h1>Womansplaining</h1>
+      <img id="logo" src="../recursos/imgs/womansplaining-logo.png" />
       <p id="subtitulo">
         Un podcast de <a href="https://cerosetenta.uniandes.edu.co/">070</a> con Gloria Susana Esquivel: conversaciones
         sobre género en diferentes campos de la sociedad y la cultura. Producido por su anfitriona Gloria Susana
@@ -41,13 +41,18 @@ header {
 #contenedorGeneral {
   border: none;
   margin: 0;
-  padding: 2em;
   background-color: #ff3d42;
 }
 
+#logo {
+  width: 100%;
+  border-top: black 29px solid;
+  border-bottom: black 40px solid;
+}
+
 #subtitulo {
-  padding: 0 12vw;
-  font-size: 1.1em;
+  padding: 1em 20vw;
+  font-size: 1.2em;
 }
 
 .episodios {
