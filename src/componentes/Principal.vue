@@ -5,13 +5,15 @@ import podcast from '../recursos/episodios.json';
 <template>
   <div id="contenedorGeneral">
     <header>
-      <div id="imagen1" class="imagen">
-        <img id="logoUno" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
-        <img id="logoDos" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
-      </div>
-      <div id="imagen2" class="imagen">
-        <img id="logoTres" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
-        <img id="logoCuatro" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
+      <div id="imagenes">
+        <div id="imagen1" class="imagen">
+          <img id="logoUno" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
+          <!--  <img id="logoDos" class="logo" src="../recursos/imgs/womansplaining-logo.png" /> -->
+        </div>
+        <div id="imagen2" class="imagen">
+          <img id="logoTres" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
+          <!--  <img id="logoCuatro" class="logo" src="../recursos/imgs/womansplaining-logo.png" /> -->
+        </div>
       </div>
       <p id="subtitulo">
         Un podcast de <a href="https://cerosetenta.uniandes.edu.co/">070</a> con Gloria Susana Esquivel: conversaciones
@@ -45,11 +47,8 @@ header {
   text-align: center;
 }
 
-.imagen {
+#imagenes {
   background-color: white;
-  position: relative;
-  top: -10px;
-  display: flex;
 }
 
 #contenedorGeneral {
@@ -58,13 +57,20 @@ header {
   background-color: #ff3d42;
 }
 
+.imagen {
+  background-color: white;
+  position: relative;
+  top: -10px;
+  display: flex;
+}
+
 @keyframes pasarLogo {
   0% {
     left: 100%;
   }
 
   100% {
-    left: -300%;
+    left: -100%;
   }
 }
 
@@ -75,12 +81,12 @@ header {
 
 #imagen1 {
   background-color: red;
-  animation: pasarLogo 40s 0s linear infinite;
+  animation: pasarLogo 20s 0s linear infinite;
   left: 100%;
 }
 
 #imagen2 {
-  animation: pasarLogo 40s 20s linear infinite;
+  animation: pasarLogo 20s 10s linear infinite;
   left: 100%;
   position: absolute;
 }

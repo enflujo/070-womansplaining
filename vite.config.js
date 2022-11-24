@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [vue()],
   clearScreen: false,
   build: {
-    outDir: './publico',
+    outDir: './docs',
+    emptyOutDir: true,
   },
 });
