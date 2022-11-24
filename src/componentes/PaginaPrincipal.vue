@@ -58,40 +58,40 @@ header {
 .imagen {
   background-color: white;
   position: relative;
-  top: -10px;
+  top: -2px;
   display: flex;
 }
 
 @keyframes pasarLogo {
   0% {
-    left: 100%;
+    left: 150%;
   }
 
   100% {
-    left: -100%;
+    left: -150%;
   }
 }
 
 .logo {
   position: relative;
-  width: 100vw;
+  width: 150vw;
 }
 
 #imagen1 {
   background-color: red;
-  animation: pasarLogo 20s 0s linear infinite;
+  animation: pasarLogo 30s 0s linear infinite;
   left: 100%;
 }
 
 #imagen2 {
-  animation: pasarLogo 20s 10s linear infinite;
+  animation: pasarLogo 30s 15s linear infinite;
   left: 100%;
   position: absolute;
 }
 
 #subtitulo {
-  padding: 1em 20vw;
-  font-size: 1.2em;
+  padding: 1em 20vw 0em;
+  font-size: 1em;
 }
 
 .episodios {
@@ -102,5 +102,79 @@ header {
 
 .elemento {
   margin: 1em 1em 0em 2em;
+}
+
+// Pantallas grandes
+@media (min-width: 1200px) {
+  .imagen {
+    top: -10px;
+  }
+
+  #subtitulo {
+    padding: 1em 20vw;
+    font-size: 1.2em;
+  }
+
+  @keyframes pasarLogo {
+    0% {
+      left: 100%;
+    }
+
+    100% {
+      left: -100%;
+    }
+  }
+
+  .logo {
+    position: relative;
+    width: 100vw;
+  }
+
+  #imagen1 {
+    animation: pasarLogo 20s 0s linear infinite;
+    left: 100%;
+  }
+
+  #imagen2 {
+    animation: pasarLogo 20s 10s linear infinite;
+    left: 100%;
+  }
+}
+
+// Tablet
+@media (min-width: 768px) {
+  .imagen {
+    top: -4px;
+  }
+
+  #subtitulo {
+    padding: 1em 12vw 0em;
+    font-size: 1.2em;
+  }
+
+  @keyframes pasarLogo {
+    0% {
+      left: 100%;
+    }
+
+    100% {
+      left: -100%;
+    }
+  }
+
+  .logo {
+    position: relative;
+    width: 100vw;
+  }
+
+  #imagen1 {
+    animation: pasarLogo 20s 0s linear infinite;
+    left: 100%;
+  }
+
+  #imagen2 {
+    animation: pasarLogo 20s 10s linear infinite;
+    left: 100%;
+  }
 }
 </style>
