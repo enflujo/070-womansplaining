@@ -111,7 +111,7 @@ header {
   }
 
   #subtitulo {
-    padding: 1em 20vw;
+    padding: 1.5em 20vw 1em;
     font-size: 1.2em;
   }
 
@@ -144,11 +144,11 @@ header {
 // Tablet
 @media (min-width: 768px) {
   .imagen {
-    top: -4px;
+    top: -8px;
   }
 
   #subtitulo {
-    padding: 1em 12vw 0em;
+    padding: 1.5em 15vw 1em;
     font-size: 1.2em;
   }
 

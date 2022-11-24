@@ -13,5 +13,9 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #ff3d42;
+
+  ::selection {
+    background: #fe95ce;
+  }
 }
 </style>
