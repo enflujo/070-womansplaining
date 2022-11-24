@@ -14,9 +14,9 @@ import podcast from '../assets/episodios.json';
         </div>
       </div>
       <p id="subtitulo">
-        Un podcast de <a href="https://cerosetenta.uniandes.edu.co/">070</a> con Gloria Susana Esquivel: conversaciones
-        sobre género en diferentes campos de la sociedad y la cultura. Producido por su anfitriona Gloria Susana
-        Esquivel y editado por Goldy Levy.
+        Un podcast de <a href="https://cerosetenta.uniandes.edu.co/" target="blank">070</a> con Gloria Susana Esquivel:
+        conversaciones sobre género en diferentes campos de la sociedad y la cultura. Producido por su anfitriona Gloria
+        Susana Esquivel y editado por Goldy Levy.
       </p>
     </header>
 
@@ -48,7 +48,23 @@ header {
 #contenedorGeneral {
   border: none;
   margin: 0;
-  background-color: #ff3d42;
+  background-color: #282828;
+
+  ::selection {
+    background: #20c594;
+  }
+
+  a {
+    color: #20c594;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #ff3d42;
+  }
+}
+
+#imagenes {
+  background-color: white;
 }
 
 .imagen {
@@ -88,6 +104,7 @@ header {
 #subtitulo {
   padding: 1em 20vw 0em;
   font-size: 1em;
+  color: white;
 }
 
 .episodios {
@@ -98,6 +115,9 @@ header {
 
 .elemento {
   margin: 1em 1em 0em 2em;
+  border: white solid 2px;
+  border-radius: 12px;
+  padding-top: 0.5em;
 }
 
 // Pantallas grandes
