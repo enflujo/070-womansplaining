@@ -9,14 +9,17 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite build && vite preview",
-    "lint": "prettier --check .",
-    "lint:fix": "prettier --write --list-different ."
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix"
   },
   "dependencies": {
     "vue": "^3.2.39"
   },
   "devDependencies": {
+    "@rushstack/eslint-patch": "^1.1.0",
     "@vitejs/plugin-vue": "^3.1.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint": "^8.21.0",
+    "eslint-plugin-vue": "^9.3.0",
     "prettier": "^2.7.1",
     "sass": "^1.54.9",
     "vite": "^3.1.3"

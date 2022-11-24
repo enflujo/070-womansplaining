@@ -1,5 +1,5 @@
 <script setup>
-import PaginaPrincipal from './componentes/Principal.vue';
+import PaginaPrincipal from './componentes/PaginaPrincipal.vue';
 </script>
 
 <template>
