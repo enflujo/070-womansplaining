@@ -1,5 +1,5 @@
 <script setup>
-import podcast from '../recursos/episodios.json';
+import podcast from '../assets/episodios.json';
 </script>
 
 <template>
@@ -7,12 +7,10 @@ import podcast from '../recursos/episodios.json';
     <header>
       <div id="imagenes">
         <div id="imagen1" class="imagen">
-          <img id="logoUno" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
-          <!--  <img id="logoDos" class="logo" src="../recursos/imgs/womansplaining-logo.png" /> -->
+          <img id="logoUno" class="logo" src="../assets/imgs/womansplaining-logo.png" />
         </div>
         <div id="imagen2" class="imagen">
-          <img id="logoTres" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
-          <!--  <img id="logoCuatro" class="logo" src="../recursos/imgs/womansplaining-logo.png" /> -->
+          <img id="logoTres" class="logo" src="../assets/imgs/womansplaining-logo.png" />
         </div>
       </div>
       <p id="subtitulo">
