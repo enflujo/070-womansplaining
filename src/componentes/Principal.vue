@@ -5,7 +5,14 @@ import podcast from '../recursos/episodios.json';
 <template>
   <div id="contenedorGeneral">
     <header>
-      <img id="logo" src="../recursos/imgs/womansplaining-logo.png" />
+      <div id="imagen1" class="imagen">
+        <img id="logoUno" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
+        <img id="logoDos" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
+      </div>
+      <div id="imagen2" class="imagen">
+        <img id="logoTres" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
+        <img id="logoCuatro" class="logo" src="../recursos/imgs/womansplaining-logo.png" />
+      </div>
       <p id="subtitulo">
         Un podcast de <a href="https://cerosetenta.uniandes.edu.co/">070</a> con Gloria Susana Esquivel: conversaciones
         sobre género en diferentes campos de la sociedad y la cultura. Producido por su anfitriona Gloria Susana
@@ -38,16 +45,44 @@ header {
   text-align: center;
 }
 
+.imagen {
+  background-color: white;
+  position: relative;
+  top: -10px;
+  display: flex;
+}
+
 #contenedorGeneral {
   border: none;
   margin: 0;
   background-color: #ff3d42;
 }
 
-#logo {
-  width: 100%;
-  border-top: black 29px solid;
-  border-bottom: black 40px solid;
+@keyframes pasarLogo {
+  0% {
+    left: 100%;
+  }
+
+  100% {
+    left: -300%;
+  }
+}
+
+.logo {
+  position: relative;
+  width: 100vw;
+}
+
+#imagen1 {
+  background-color: red;
+  animation: pasarLogo 40s 0s linear infinite;
+  left: 100%;
+}
+
+#imagen2 {
+  animation: pasarLogo 40s 20s linear infinite;
+  left: 100%;
+  position: absolute;
 }
 
 #subtitulo {
