@@ -45,10 +45,6 @@ header {
   text-align: center;
 }
 
-#imagenes {
-  background-color: white;
-}
-
 #contenedorGeneral {
   border: none;
   margin: 0;
@@ -58,7 +54,7 @@ header {
 .imagen {
   background-color: white;
   position: relative;
-  top: -2px;
+  top: 0px;
   display: flex;
 }
 
@@ -74,19 +70,19 @@ header {
 
 .logo {
   position: relative;
-  width: 150vw;
+  width: 90vw;
+  margin: 1em auto;
 }
 
 #imagen1 {
-  background-color: red;
-  animation: pasarLogo 30s 0s linear infinite;
   left: 100%;
+  visibility: hidden;
 }
 
 #imagen2 {
-  animation: pasarLogo 30s 15s linear infinite;
-  left: 100%;
+  left: 0%;
   position: absolute;
+  width: 100vw;
 }
 
 #subtitulo {
@@ -106,10 +102,6 @@ header {
 
 // Pantallas grandes
 @media (min-width: 1200px) {
-  .imagen {
-    top: -10px;
-  }
-
   #subtitulo {
     padding: 1.5em 20vw 1em;
     font-size: 1.2em;
@@ -128,11 +120,13 @@ header {
   .logo {
     position: relative;
     width: 100vw;
+    margin: 0;
   }
 
   #imagen1 {
     animation: pasarLogo 20s 0s linear infinite;
     left: 100%;
+    visibility: visible;
   }
 
   #imagen2 {
@@ -143,10 +137,6 @@ header {
 
 // Tablet
 @media (min-width: 768px) {
-  .imagen {
-    top: -8px;
-  }
-
   #subtitulo {
     padding: 1.5em 15vw 1em;
     font-size: 1.2em;
@@ -165,11 +155,13 @@ header {
   .logo {
     position: relative;
     width: 100vw;
+    margin: 0;
   }
 
   #imagen1 {
     animation: pasarLogo 20s 0s linear infinite;
     left: 100%;
+    visibility: visible;
   }
 
   #imagen2 {
