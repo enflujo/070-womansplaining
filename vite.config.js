@@ -14,5 +14,5 @@ export default defineConfig({
     outDir: './docs',
     emptyOutDir: true,
   },
-  base: '/070-womansplaining/',
+  base: '/womansplaining/',
 });
