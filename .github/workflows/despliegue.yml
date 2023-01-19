@@ -29,6 +29,6 @@ jobs:
         with:
           server: ${{ secrets.DOMINIO_070 }}
           username: ${{ secrets.USUARIO_070 }}
-          server-dir: public_html/especiales/womansplaining/
+          server-dir: especiales/womansplaining/
           local-dir: ./docs/
           password: ${{ secrets.CLAVE_070 }}
