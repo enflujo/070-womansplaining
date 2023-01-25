@@ -1,5 +1,67 @@
 <script setup>
-import podcast from '../assets/episodios.json';
+import { onUnmounted, onMounted } from 'vue';
+let animador;
+
+onMounted(() => {
+  const stageW = window.innerWidth;
+  const stageH = window.innerHeight;
+  const centerX = stageW / 2;
+  const centerY = stageH / 2;
+  const svg = document.getElementById('trenza');
+  const amps = [];
+  const numeroOndas = 100;
+
+  const limite = 500;
+
+  for (let i = 0; i < numeroOndas; i++) {
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    const amp = i * 10;
+
+    const d = `M 0 ${centerY} C ${centerX - centerX / 2} ${centerY - amp} ${centerX + centerX / 2} ${
+      centerY + amp
+    } ${stageW} ${centerY} `;
+
+    svg.setAttribute('viewBox', '0, 0, ' + stageW + ', ' + stageH);
+    path.setAttributeNS(null, 'd', d);
+    svg.appendChild(path);
+
+    amps.push([1, amp]);
+  }
+  const lineas = svg.querySelectorAll('path');
+
+  function loop() {
+    lineas.forEach((linea, i) => {
+      let ampY = amps[i][1];
+      let direction = amps[i][0];
+
+      ampY = ampY + 1 * direction;
+
+      if (ampY > limite) {
+        amps[i][0] = -Math.random();
+      } else if (ampY < -limite) {
+        amps[i][0] = Math.random();
+      }
+
+      linea.setAttributeNS(
+        null,
+        'd',
+        `M 0 ${centerY} C ${centerX - centerX / (2 * (i + 1))} ${centerY - ampY} ${centerX + centerX / (2 * (i + 1))} ${
+          centerY + ampY
+        } ${stageW} ${centerY} `
+      );
+
+      amps[i][1] = ampY;
+    });
+
+    animador = requestAnimationFrame(loop);
+  }
+
+  loop();
+});
+
+onUnmounted(() => {
+  cancelAnimationFrame(animador);
+});
 </script>
 
 <template>
@@ -20,27 +82,28 @@ import podcast from '../assets/episodios.json';
       </p>
     </header>
 
-    <div class="episodios" v-if="podcast">
-      <div class="elemento" v-for="(episodio, i) in podcast.episodios" :key="`episodio${i}`">
-        <iframe
-          v-if="episodio.codigo"
-          class="iframe"
-          :key="`nivel${i}`"
-          style="border-radius: 12px"
-          :src="`https://open.spotify.com/embed/episode/${episodio.codigo}?utm_source=generator&theme=0`"
-          width="100%"
-          height="250"
-          frameBorder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-      </div>
-    </div>
+    <iframe
+      id="reproductor"
+      style="border-radius: 12px"
+      src="https://open.spotify.com/embed/playlist/665f5UiNYieTeswi9OMazI?utm_source=generator&theme=0"
+      width="50%"
+      height="470px"
+      frameBorder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+
+    <svg id="trenza" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
   </div>
+
+  <div id="creditos"></div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+body {
+  overflow: hidden;
+}
 header {
   text-align: center;
 }
@@ -49,6 +112,7 @@ header {
   border: none;
   margin: 0;
   background-color: #282828;
+  min-height: 100vh;
 
   ::selection {
     background: #20c594;
@@ -61,6 +125,11 @@ header {
   a:hover {
     color: #ff3d42;
   }
+}
+
+#reproductor {
+  margin: 0 auto;
+  display: block;
 }
 
 #imagenes {
@@ -105,20 +174,6 @@ header {
   padding: 1em 20vw 0em;
   font-size: 1em;
   color: white;
-}
-
-.episodios {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 5vw;
-}
-
-.elemento {
-  margin: 1em 1em 0em 2em;
-  border: white solid 2px;
-  border-radius: 12px;
-  padding-top: 0.5em;
 }
 
 // Pantallas grandes
@@ -189,5 +244,19 @@ header {
     animation: pasarLogo 20s 10s linear infinite;
     left: 100%;
   }
+}
+
+#trenza {
+  position: absolute;
+  top: 0;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+path {
+  fill: transparent;
+  stroke: rgb(27, 243, 45);
+  stroke-width: 0.5px;
+  position: absolute;
 }
 </style>
