@@ -1,6 +1,7 @@
 <script setup>
 import { onUnmounted, onMounted } from 'vue';
 let animador;
+let creditosVisibles = false;
 
 onMounted(() => {
   const stageW = window.innerWidth;
@@ -8,6 +9,7 @@ onMounted(() => {
   const centerX = stageW / 2;
   const centerY = stageH / 2;
   const svg = document.getElementById('trenza');
+  const creditos = document.getElementById('creditos');
   const amps = [];
   const numeroOndas = 100;
 
@@ -62,6 +64,15 @@ onMounted(() => {
 onUnmounted(() => {
   cancelAnimationFrame(animador);
 });
+
+function mostrarCreditos() {
+  if (this.creditosVisibles === false) {
+    creditos.style.visibility = 'visible';
+  } else {
+    creditos.style.visibility = 'hidden';
+  }
+  this.creditosVisibles = !this.creditosVisibles;
+}
 </script>
 
 <template>
@@ -76,9 +87,10 @@ onUnmounted(() => {
         </div>
       </div>
       <p id="subtitulo">
-        Un podcast de <a href="https://cerosetenta.uniandes.edu.co/" target="blank">070</a> con Gloria Susana Esquivel:
-        conversaciones sobre género en diferentes campos de la sociedad y la cultura. Producido por su anfitriona Gloria
-        Susana Esquivel y editado por Goldy Levy.
+        Esto es Womansplaining. Un Podcast de <a href="https://cerosetenta.uniandes.edu.co/" target="_blank">070</a> con
+        Gloria Susana Esquivel y Lina Vargas, editado por Goldy Levy.
+        <br />
+        Tenemos conversaciones sobre feminismo, arte, política y cultura.
       </p>
     </header>
 
@@ -86,23 +98,60 @@ onUnmounted(() => {
       id="reproductor"
       style="border-radius: 12px"
       src="https://open.spotify.com/embed/playlist/665f5UiNYieTeswi9OMazI?utm_source=generator&theme=0"
-      width="50%"
-      height="470px"
       frameBorder="0"
       allowfullscreen=""
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"
     ></iframe>
 
-    <svg id="trenza" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
+    <!-- <svg id="trenza" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg> -->
+
+    <div @click="mostrarCreditos()" id="botonCreditos">?</div>
   </div>
 
-  <div id="creditos"></div>
+  <div id="creditos">
+    <div id="cerrarCreditos" @click="mostrarCreditos()">X</div>
+    <h1>Womansplaining</h1>
+    <p>Un podcast de <a href="https://cerosetenta.uniandes.edu.co/" target="_blank">070</a></p>
+
+    <h3>Equipo</h3>
+
+    <ul class="equipo">
+      <li class="persona">
+        <div class="rol">Producción</div>
+        <div class="nombre">Gloria Susana Esquivel y Lina Vargas</div>
+      </li>
+      <li class="persona">
+        <div class="rol">Edición</div>
+        <div class="nombre">Goldy Levy</div>
+      </li>
+      <li class="persona">
+        <div class="rol">Desarrollo web</div>
+        <div class="nombre"><a href="https://enflujo.com/" target="_blank">Laboratorio EnFlujo</a></div>
+      </li>
+    </ul>
+    <div id="logos">
+      <a href="https://enflujo.com/" target="_blank"><img src="../assets/imgs/logoEnflujo.svg" alt="Logo EnFlujo" /></a>
+
+      <a href="https://cerosetenta.uniandes.edu.co/" target="_self"
+        ><img src="../assets/imgs/logo070.png" alt="Logo Cerosetenta"
+      /></a>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
 body {
   overflow: hidden;
+  background-color: #282828;
+  a {
+    color: #20c594;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  a:hover {
+    color: #ff3d42;
+  }
 }
 header {
   text-align: center;
@@ -111,25 +160,20 @@ header {
 #contenedorGeneral {
   border: none;
   margin: 0;
-  background-color: #282828;
+
   min-height: 100vh;
 
   ::selection {
     background: #20c594;
-  }
-
-  a {
-    color: #20c594;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #ff3d42;
   }
 }
 
 #reproductor {
   margin: 0 auto;
   display: block;
+  width: 80%;
+  height: 470px;
+  overflow: hidden;
 }
 
 #imagenes {
@@ -141,6 +185,14 @@ header {
   position: relative;
   top: 0px;
   display: flex;
+}
+
+.persona {
+  margin-bottom: 1em;
+}
+
+.rol {
+  font-weight: bold;
 }
 
 @keyframes pasarLogo {
@@ -176,6 +228,46 @@ header {
   color: white;
 }
 
+#creditos {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  padding: 5%;
+}
+
+#cerrarCreditos {
+  cursor: pointer;
+  &:hover {
+    color: #20c594;
+  }
+}
+
+#botonCreditos {
+  position: absolute;
+  bottom: 10px;
+  right: 55px;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    color: #20c594;
+  }
+}
+
+#logos {
+  display: inline-block;
+  margin: 31px 10px;
+
+  img {
+    height: 27px;
+    margin: 0 20px;
+  }
+}
+
 // Pantallas grandes
 @media (min-width: 1200px) {
   #subtitulo {
@@ -208,6 +300,12 @@ header {
   #imagen2 {
     animation: pasarLogo 20s 10s linear infinite;
     left: 100%;
+  }
+
+  #reproductor {
+    margin: 0 auto;
+    display: block;
+    width: 50%;
   }
 }
 
@@ -258,5 +356,11 @@ path {
   stroke: rgb(27, 243, 45);
   stroke-width: 0.5px;
   position: absolute;
+}
+
+#reproductor {
+  margin: 0 auto;
+  display: block;
+  width: 80%;
 }
 </style>
