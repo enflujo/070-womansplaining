@@ -7,6 +7,18 @@ import PaginaPrincipal from './componentes/PaginaPrincipal.vue';
 </template>
 
 <style lang="scss">
+html {
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html,
 body {
   margin: 0;

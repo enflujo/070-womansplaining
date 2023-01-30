@@ -86,6 +86,7 @@ function mostrarCreditos() {
           <img id="logoTres" class="logo" src="../assets/imgs/womansplaining-logo.png" />
         </div>
       </div>
+
       <p id="subtitulo">
         Esto es Womansplaining. Un Podcast de <a href="https://cerosetenta.uniandes.edu.co/" target="_blank">070</a> con
         Gloria Susana Esquivel y Lina Vargas, editado por Goldy Levy.
@@ -104,7 +105,7 @@ function mostrarCreditos() {
       loading="lazy"
     ></iframe>
 
-    <!-- <svg id="trenza" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg> -->
+    <svg id="trenza" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
 
     <div @click="mostrarCreditos()" id="botonCreditos">?</div>
   </div>
@@ -139,6 +140,7 @@ function mostrarCreditos() {
     </div>
   </div>
 </template>
+.
 
 <style lang="scss">
 body {
@@ -155,12 +157,12 @@ body {
 }
 header {
   text-align: center;
+  width: 100vw;
 }
 
 #contenedorGeneral {
   border: none;
   margin: 0;
-
   min-height: 100vh;
 
   ::selection {
@@ -172,12 +174,20 @@ header {
   margin: 0 auto;
   display: block;
   width: 80%;
-  height: 470px;
+  height: 135vh;
   overflow: hidden;
 }
 
 #imagenes {
   background-color: white;
+}
+
+#imagen1 {
+  display: none;
+}
+
+#imagen2 {
+  position: relative;
 }
 
 .imagen {
@@ -214,12 +224,6 @@ header {
 #imagen1 {
   left: 100%;
   visibility: hidden;
-}
-
-#imagen2 {
-  left: 0%;
-  position: absolute;
-  width: 100vw;
 }
 
 #subtitulo {
@@ -306,6 +310,7 @@ header {
     margin: 0 auto;
     display: block;
     width: 50%;
+    height: 55vh;
   }
 }
 
@@ -336,11 +341,15 @@ header {
     animation: pasarLogo 20s 0s linear infinite;
     left: 100%;
     visibility: visible;
+    display: block;
   }
 
   #imagen2 {
     animation: pasarLogo 20s 10s linear infinite;
     left: 100%;
+
+    position: absolute;
+    width: 100vw;
   }
 }
 
@@ -362,5 +371,6 @@ path {
   margin: 0 auto;
   display: block;
   width: 80%;
+  height: 55vh;
 }
 </style>
