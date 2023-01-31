@@ -1,7 +1,7 @@
 <script setup>
-import { onUnmounted, onMounted } from 'vue';
+import { onUnmounted, onMounted, ref } from 'vue';
 let animador;
-let creditosVisibles = false;
+let creditosVisibles = ref(false);
 
 onMounted(() => {
   const stageW = window.innerWidth;
@@ -9,7 +9,6 @@ onMounted(() => {
   const centerX = stageW / 2;
   const centerY = stageH / 2;
   const svg = document.getElementById('trenza');
-  const creditos = document.getElementById('creditos');
   const amps = [];
   const numeroOndas = 100;
 
@@ -66,12 +65,7 @@ onUnmounted(() => {
 });
 
 function mostrarCreditos() {
-  if (this.creditosVisibles === false) {
-    creditos.style.visibility = 'visible';
-  } else {
-    creditos.style.visibility = 'hidden';
-  }
-  this.creditosVisibles = !this.creditosVisibles;
+  creditosVisibles.value = !creditosVisibles.value;
 }
 </script>
 
@@ -110,7 +104,7 @@ function mostrarCreditos() {
     <div @click="mostrarCreditos()" id="botonCreditos">?</div>
   </div>
 
-  <div id="creditos">
+  <div id="creditos" :class="creditosVisibles ? 'activo' : ''">
     <div id="cerrarCreditos" @click="mostrarCreditos()">X</div>
     <h1>Womansplaining</h1>
     <p>Un podcast de <a href="https://cerosetenta.uniandes.edu.co/" target="_blank">070</a></p>
@@ -233,7 +227,6 @@ header {
 }
 
 #creditos {
-  visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -241,10 +234,16 @@ header {
   width: 100vw;
   height: 100vh;
   padding: 5%;
+  visibility: hidden;
+
+  &.activo {
+    visibility: visible;
+  }
 }
 
 #cerrarCreditos {
   cursor: pointer;
+
   &:hover {
     color: #20c594;
   }
